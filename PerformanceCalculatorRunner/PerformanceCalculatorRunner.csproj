@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C3E4CC3-8D83-4D9A-B59B-8E583C8B5B52}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PerformanceCalculatorRunner</RootNamespace>
+    <AssemblyName>PerformanceCalculatorRunner</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IWriter.cs" />
+    <Compile Include="Models\FinalTestResult.cs" />
+    <Compile Include="Interfaces\IPerformanceTestsRunner.cs" />
+    <Compile Include="Helpers\PerformanceTestCasesCreaterHelper.cs" />
+    <Compile Include="Models\PerformanceTestCase.cs" />
+    <Compile Include="Helpers\PerformanceTestCasesRunnerHelper.cs" />
+    <Compile Include="Writers\CsvVerticalFileWriter.cs" />
+    <Compile Include="Writers\CsvHorizontalFileWriter.cs" />
+    <Compile Include="Helpers\ProcessHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PerformanceTestsRunner.cs" />
+    <Compile Include="Models\WriteKind.cs" />
+    <Compile Include="Writers\FileWriter.cs" />
+    <Compile Include="Writers\LatexTableWriter.cs" />
+    <Compile Include="Writers\RegisterAndResolveCsvVerticalFileWriter.cs" />
+    <Compile Include="Writers\RegisterCsvVerticalFileWriter.cs" />
+    <Compile Include="Writers\ResolveCsvVerticalFileWriter.cs" />
+    <Compile Include="Writers\RegisterLatexTableWriter.cs" />
+    <Compile Include="Writers\ResolveLatexTableWriter.cs" />
+    <Compile Include="Writers\WriterFactory.cs" />
+    <Compile Include="Writers\RegisterAndResolveCsvHorizontalFileWriter.cs" />
+    <Compile Include="Writers\RegisterCsvHorizontalFileWriter.cs" />
+    <Compile Include="Writers\ResolveCsvHorizontalFileWriter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PerformanceCalculator.Common\PerformanceCalculator.Common.csproj">
+      <Project>{f8a9c60e-8402-4ab5-8c43-1ad21d6b6cf5}</Project>
+      <Name>PerformanceCalculator.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
