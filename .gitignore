@@ -156,3 +156,6 @@ $RECYCLE.BIN/
 .DS_Store
 /packages
 /NiquIoC.Test/UnitTest1.cs
+
+# Additional
+.vs/
